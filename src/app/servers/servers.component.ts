@@ -1,3 +1,4 @@
+import { isEmptyExpression } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,25 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServersComponent implements OnInit {
 
-  allowNewServer = false;
-  serverCreationStatus = 'No Server was created!';
-  serverName = '';
-
+  username='dummy.user'
+  isUsernameEmpty = false;
+  
   constructor() {
-    setTimeout(()=>{
-      this.allowNewServer = true;
-    },2000);
   }
 
   ngOnInit(): void {
   }
 
-  onCreateServer() {
-    this.serverCreationStatus = "Server was created! Server name: "+this.serverName;
+  setUsername(event: Event) {
+    this.username = (<HTMLInputElement>event.target).value;
+    if(this.username.length==0) this.isUsernameEmpty = true;
   }
 
-  onUpdateServerName(event: Event) {
-    this.serverName = (<HTMLInputElement>event.target).value;
+  resetUsername() {
+    this.isUsernameEmpty = true;
+    this.username = '';
+  }
+
+  checkUsernameEmpty() {
+    return this.isUsernameEmpty;
   }
 
 }
