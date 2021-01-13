@@ -1,0 +1,7 @@
+<button class="btn btn-primary" (click)="toggleParagraph()">Display details</button>
+<br><br>
+<p *ngIf="showParagraph">Secret Password {{secretPassword}}</p>
+<p *ngFor="let bpc of buttonPressCount" 
+    [ngStyle]="{backgroundColor:getBackGroundColorGreaterThanCounterFive()}"
+    [ngClass]="{counter : counter>=5}"
+    >{{bpc}}</p>
