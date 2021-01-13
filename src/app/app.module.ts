@@ -7,13 +7,13 @@ import { ServersComponent } from './servers/servers.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ServersComponent
   ],
   imports: [
     BrowserModule, 
     //FormsModule is required for ngModel
-    FormsModule,
-    ServersComponent
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
