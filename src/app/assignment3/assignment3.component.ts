@@ -14,8 +14,7 @@ export class Assignment3Component implements OnInit {
   showParagraph = false;
   secretPassword = 'tuna'
   buttonPressCount = [];
-  counter:number = 0;
-
+  
   constructor() { }
 
   ngOnInit(): void {
@@ -24,11 +23,11 @@ export class Assignment3Component implements OnInit {
   toggleParagraph() {
     if(this.showParagraph) this.showParagraph = false;
     else this.showParagraph = true;
-    this.buttonPressCount.push(++this.counter);
+    this.buttonPressCount.push(this.buttonPressCount.length+1);
   }
 
   getBackGroundColorGreaterThanCounterFive() {
-    return (this.counter >= 5) ? 'blue' : '';
+    return (this.buttonPressCount.length >= 5) ? 'blue' : 'transparent';
   }
 
 }
